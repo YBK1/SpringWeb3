@@ -42,20 +42,3 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-web3j {
-    generatedPackageName = "com.example.web3j.model.contracts"
-    generatedFilesBaseDir = layout.buildDirectory.dir("resources/main/web3j").get().asFile
-    //excludedContracts = ['Ownable']
-    useNativeJavaTypes = false
-}
-
-sourceSets {
-    main {
-        solidity {
-            srcDir {
-                "../blockchain/build/contracts"
-            }
-        }
-    }
-}
-

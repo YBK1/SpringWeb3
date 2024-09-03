@@ -1,10 +1,9 @@
 package com.example.web3j.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 
 @Entity
-public class Member {
+public class MemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

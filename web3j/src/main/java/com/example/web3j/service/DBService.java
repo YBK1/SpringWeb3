@@ -1,6 +1,6 @@
 package com.example.web3j.service;
 
-import com.example.web3j.model.Member;
+import com.example.web3j.model.MemberEntity;
 import com.example.web3j.model.MemberDto;
 import com.example.web3j.repository.DBRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class DBService {
 
     @Transactional
     public void add(MemberDto memberDto){
-        Member member = new Member();
+        MemberEntity member = new MemberEntity();
         member.setMemberByMemberDto(memberDto);
 
         dbRepository.save(member);

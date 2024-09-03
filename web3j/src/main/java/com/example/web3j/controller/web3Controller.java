@@ -1,6 +1,5 @@
 package com.example.web3j.controller;
 
-import com.example.web3j.model.Member;
 import com.example.web3j.model.MemberDto;
 import com.example.web3j.service.DBService;
 import com.example.web3j.service.Web3Service;
@@ -18,8 +17,13 @@ public class web3Controller {
 
     @GetMapping("add")
     public ResponseEntity<String> add(@RequestBody MemberDto memberDto) {
-        dbService.add(memberDto);
-        
+        try{
+            dbService.add(memberDto);
+            web3Service.setStoredValue("0x8472d19f4237d7731b7F7522f1BF5E161B93a5F6", "Hello Test");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
         return ResponseEntity.ok("입력완료");
     }
 }
