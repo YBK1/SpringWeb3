@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -22,18 +23,23 @@ import jakarta.persistence.EntityManagerFactory;
 	entityManagerFactoryRef = "entityManagerFactory",
 	transactionManagerRef = "transactionManager")
 public class MetaDBConfig {
-	@Bean
-	@ConfigurationProperties("meta.datasource")
-	public DataSourceProperties metaDataSourceProperties(){
-		return new DataSourceProperties();
-	}
-
-	@Bean
-	public DataSource metaDataSource(){
-		return metaDataSourceProperties()
-			.initializeDataSourceBuilder()
-			.type(HikariDataSource.class)
-			.build();
+//	@Bean
+//	@ConfigurationProperties("datasource.meta")
+//	public DataSourceProperties metaDataSourceProperties(){
+//		return new DataSourceProperties();
+//	}
+//
+//	@Bean
+//	public DataSource metaDataSource(){
+//		return metaDataSourceProperties()
+//			.initializeDataSourceBuilder()
+//			.type(HikariDataSource.class)
+//			.build();
+//	}
+	@Bean(name = "metaDataSource")
+	@ConfigurationProperties(prefix = "spring.datasource.meta")
+	public DataSource metaDataSource() {
+		return DataSourceBuilder.create().build();
 	}
 
 	@Bean

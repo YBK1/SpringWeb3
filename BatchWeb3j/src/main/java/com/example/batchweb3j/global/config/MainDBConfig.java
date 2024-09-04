@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -24,20 +25,26 @@ import jakarta.persistence.EntityManagerFactory;
 	entityManagerFactoryRef = "entityManagerFactory",
 	transactionManagerRef = "transactionManager")
 public class MainDBConfig {
-	@Bean
+//	@Bean
+//	@Primary
+//	@ConfigurationProperties("datasource.main")
+//	public DataSourceProperties mainDataSourceProperties(){
+//		return new DataSourceProperties();
+//	}
+//
+//	@Bean
+//	@Primary
+//	public DataSource mainDataSource(){
+//		return mainDataSourceProperties()
+//			.initializeDataSourceBuilder()
+//			.type(HikariDataSource.class)
+//			.build();
+//	}
 	@Primary
-	@ConfigurationProperties("main.datasource")
-	public DataSourceProperties mainDataSourceProperties(){
-		return new DataSourceProperties();
-	}
-
-	@Bean
-	@Primary
-	public DataSource mainDataSource(){
-		return mainDataSourceProperties()
-			.initializeDataSourceBuilder()
-			.type(HikariDataSource.class)
-			.build();
+	@Bean(name = "mainDataSource")
+	@ConfigurationProperties(prefix = "spring.datasource.main")
+	public DataSource mainDataSource() {
+		return DataSourceBuilder.create().build();
 	}
 
 	@Bean
