@@ -1,4 +1,4 @@
-package com.example.web3j.config;
+package com.example.batchweb3j.global.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

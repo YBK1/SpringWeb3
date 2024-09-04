@@ -1,4 +1,4 @@
-package com.example.web3j.service;
+package com.example.batchweb3j.domain.web3.service;
 
 import java.math.BigInteger;
 
@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.tx.gas.ContractGasProvider;
-import org.web3j.tx.gas.DefaultGasProvider;
 import org.web3j.tx.gas.StaticGasProvider;
 
-import com.example.web3j.model.contract.Member;
+import com.example.batchweb3j.domain.web3.model.contract.Member;
 
 @Service
 @RequiredArgsConstructor

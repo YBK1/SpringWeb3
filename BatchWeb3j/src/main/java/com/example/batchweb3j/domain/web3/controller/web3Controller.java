@@ -1,12 +1,10 @@
-package com.example.web3j.controller;
+package com.example.batchweb3j.domain.web3.controller;
 
-import com.example.web3j.model.MemberDto;
-import com.example.web3j.service.DBService;
-import com.example.web3j.service.Web3Service;
+import com.example.batchweb3j.domain.web3.model.MemberDto;
+import com.example.batchweb3j.domain.web3.service.DBService;
+import com.example.batchweb3j.domain.web3.service.Web3Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

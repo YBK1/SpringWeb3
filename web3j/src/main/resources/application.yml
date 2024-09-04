@@ -1,0 +1,31 @@
+spring:
+  application:
+    name:
+      web3j
+  web3:
+    datasource:
+      url: jdbc:mysql://localhost/web3?serverTimezone=UTC
+      username: ssafy
+      password: ssafy
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  meta:
+    datasource:
+      url: jdbc:mysql://localhost:3306/meta?serverTimezone=UTC
+      username: ssafy
+      password: ssafy
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+#  sql:
+#    init:
+#      mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
+  batch:
+    job:
+      enabled: false
