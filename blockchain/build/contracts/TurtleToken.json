@@ -1,0 +1,122 @@
+{
+  "contractName": "TurtleToken",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/turtletoken.sol\":\"TurtleToken\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/turtletoken.sol\":{\"keccak256\":\"0xd4b13374539e4f9eabb4607a05de3adbd404c0481ca09affe26e3b4a089d8c34\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5c345b32ba69678387d5c53c1a3d3809f44488a303561e96b5b6c948b123760c\",\"dweb:/ipfs/QmNUj98o4Eq7Y63hRfFSjFxgNHZ4huoB4m1KVBnYWxXJz5\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220e893889f9c262606bd8851d2a56f1248f75b40ad4e987188e966655ea0e62e1a64736f6c63430008120033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220e893889f9c262606bd8851d2a56f1248f75b40ad4e987188e966655ea0e62e1a64736f6c63430008120033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "179:1447:1:-:0;;;256:122;;;;;;;;;;179:1447;;;;;;",
+  "deployedSourceMap": "179:1447:1:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n// import \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\r\n// import \"@openzeppelin/contracts/access/Ownable.sol\";\r\n\r\ncontract TurtleToken {\r\n    // Initial supply: 1 million TURT (18 dec\r\n\r\n    constructor() {\r\n        // Mint initial supply to contract deployer\r\n        // _mint(msg.sender, INITIAL_SUPPLY);\r\n    }\r\n\r\n    // // Mint TURT tokens (only owner)\r\n    // function mintTurt(address to, uint256 amount) public onlyOwner {\r\n    //     _mint(to, amount);\r\n    // }\r\n\r\n    // // Burn TURT tokens\r\n    // function burnTurt(uint256 amount) public {\r\n    //     _burn(msg.sender, amount);\r\n    // }\r\n\r\n    // Buy TURT with ETH\r\n    // function buyTokens() public payable {\r\n    //     uint256 turtAmount = msg.value * ETH_TO_TURT_RATE;\r\n    //     require(balanceOf(owner()) >= turtAmount, \"Not enough TURT in reserve\");\r\n    //     _transfer(owner(), msg.sender, turtAmount);\r\n    // }\r\n\r\n    // Sell TURT for ETH\r\n    // function sellTokens(uint256 turtAmount) public {\r\n    //     require(balanceOf(msg.sender) >= turtAmount, \"Insufficient TURT balance\");\r\n    //     uint256 ethAmount = turtAmount / ETH_TO_TURT_RATE;\r\n    //     require(address(this).balance >= ethAmount, \"Not enough ETH in contract\");\r\n    //     _transfer(msg.sender, owner(), turtAmount);\r\n    //     payable(msg.sender).transfer(ethAmount);\r\n    // }\r\n\r\n    // Get TURT balance\r\n    // function getTurtBalance(address account) public view returns (uint256) {\r\n    //     return balanceOf(account);\r\n    // }\r\n\r\n    // Function to receive ETH\r\n    // receive() external payable {}\r\n}\r\n",
+  "sourcePath": "C:\\Users\\SSAFY\\sources\\SpringWeb3\\SpringWeb3\\blockchain\\contracts\\turtletoken.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/turtletoken.sol",
+    "exportedSymbols": {
+      "TurtleToken": [
+        39
+      ]
+    },
+    "id": 40,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "TurtleToken",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 39,
+        "linearizedBaseContracts": [
+          39
+        ],
+        "name": "TurtleToken",
+        "nameLocation": "188:11:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 37,
+              "nodeType": "Block",
+              "src": "270:108:1",
+              "statements": []
+            },
+            "id": 38,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 35,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "267:2:1"
+            },
+            "returnParameters": {
+              "id": 36,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "270:0:1"
+            },
+            "scope": 39,
+            "src": "256:122:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 40,
+        "src": "179:1447:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:1595:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.18+commit.87f61d96.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xeadAc47CAe62fFb2BA12EeD3A60cFeB790a28430",
+      "transactionHash": "0xb9e68a54af883dd2a6630f7a9cb26f169d01982f60ebe2e4a1c1ef7b129ba997"
+    }
+  },
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-09-05T08:22:16.746Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -22,24 +22,9 @@ import jakarta.persistence.EntityManagerFactory;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-	entityManagerFactoryRef = "entityManagerFactory",
-	transactionManagerRef = "transactionManager")
+	entityManagerFactoryRef = "mainEntityManagerFactory",
+	transactionManagerRef = "mainTransactionManager")
 public class MainDBConfig {
-//	@Bean
-//	@Primary
-//	@ConfigurationProperties("datasource.main")
-//	public DataSourceProperties mainDataSourceProperties(){
-//		return new DataSourceProperties();
-//	}
-//
-//	@Bean
-//	@Primary
-//	public DataSource mainDataSource(){
-//		return mainDataSourceProperties()
-//			.initializeDataSourceBuilder()
-//			.type(HikariDataSource.class)
-//			.build();
-//	}
 	@Primary
 	@Bean(name = "mainDataSource")
 	@ConfigurationProperties(prefix = "spring.datasource.main")
@@ -47,19 +32,19 @@ public class MainDBConfig {
 		return DataSourceBuilder.create().build();
 	}
 
-	@Bean
 	@Primary
-	public LocalContainerEntityManagerFactoryBean primaryEntityManagerFactory() {
+	@Bean(name = "mainEntityManagerFactory")
+	public LocalContainerEntityManagerFactoryBean mainEntityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 		factory.setDataSource(mainDataSource());
-		factory.setPackagesToScan("com.example.batchweb3j.domain"); // 엔티티 패키지 경로
+		factory.setPackagesToScan("com.example.batchweb3j.document.model"); // 엔티티 패키지 경로
 		factory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		return factory;
 	}
 
-	@Bean
 	@Primary
-	public JpaTransactionManager primaryTransactionManager(EntityManagerFactory primaryEntityManagerFactory) {
+	@Bean(name = "mainTransactionManager")
+	public JpaTransactionManager mainTransactionManager(EntityManagerFactory primaryEntityManagerFactory) {
 		return new JpaTransactionManager(primaryEntityManagerFactory);
 	}
 }

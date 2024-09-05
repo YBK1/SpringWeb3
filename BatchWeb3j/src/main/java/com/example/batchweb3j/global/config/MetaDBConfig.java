@@ -20,38 +20,25 @@ import jakarta.persistence.EntityManagerFactory;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-	entityManagerFactoryRef = "entityManagerFactory",
-	transactionManagerRef = "transactionManager")
+	entityManagerFactoryRef = "metaEntityManagerFactory",
+	transactionManagerRef = "metaTransactionManager")
 public class MetaDBConfig {
-//	@Bean
-//	@ConfigurationProperties("datasource.meta")
-//	public DataSourceProperties metaDataSourceProperties(){
-//		return new DataSourceProperties();
-//	}
-//
-//	@Bean
-//	public DataSource metaDataSource(){
-//		return metaDataSourceProperties()
-//			.initializeDataSourceBuilder()
-//			.type(HikariDataSource.class)
-//			.build();
-//	}
 	@Bean(name = "metaDataSource")
 	@ConfigurationProperties(prefix = "spring.datasource.meta")
 	public DataSource metaDataSource() {
 		return DataSourceBuilder.create().build();
 	}
 
-	@Bean
+	@Bean(name = "metaEntityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean metaEntityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 		factory.setDataSource(metaDataSource());
-		factory.setPackagesToScan("com.example.batchweb3j"); // 엔티티 패키지 경로
+		factory.setPackagesToScan("com.example.batchweb3j.global.config"); // 엔티티 패키지 경로
 		factory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		return factory;
 	}
 
-	@Bean
+	@Bean(name = "metaTransactionManager")
 	public JpaTransactionManager metaTransactionManager(EntityManagerFactory metaEntityManagerFactory) {
 		return new JpaTransactionManager(metaEntityManagerFactory);
 	}

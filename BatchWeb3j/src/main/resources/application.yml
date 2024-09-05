@@ -7,13 +7,13 @@ spring:
 
   datasource:
     main:
-      driver-class-name: org.mariadb.jdbc.Driver
-      jdbcUrl: jdbc:mariadb://localhost:3307/meta?serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://localhost:3306/kkobuk_main?serverTimezone=UTC
       username: turtlecoin
       password: turtlecoin
     meta:
-      driver-class-name: org.mariadb.jdbc.Driver
-      jdbcUrl: jdbc:mariadb://localhost:3307/kkobukzip?serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://localhost:3306/meta?serverTimezone=UTC
       username: turtlecoin
       password: turtlecoin
 
@@ -24,7 +24,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.MariaDBDialect
+        dialect: org.hibernate.dialect.MySQLDialect
 
   batch:
     job:
